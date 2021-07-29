@@ -40,3 +40,12 @@ export const deleteExpense= (id)=> async (dispatch)=> {
         console.log(error);
     }
 }
+
+export const getLastFiveExpenses=()=> async (dispatch)=>{
+    try{
+        const {data}= await api.fetchFiveExpenses();
+        dispatch({type:'FETCH_FIVE', payload:data});
+    } catch(error){
+        console.log(error);
+    }
+}

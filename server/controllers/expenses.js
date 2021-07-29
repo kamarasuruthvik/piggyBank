@@ -52,3 +52,14 @@ export const deleteExpense= async (req, res)=>{
 
     res.json({message: 'Expense Deleted Successfully'});
 }
+export const getLastFiveExpense = async (req, res )=>{
+    if(!req.userId)
+    return res.json({message: "Unauthenticated"});
+    const Id= req.userId; 
+    try{
+        const expenses= await expenseModel.find({userId:{$eq:Id}}).sort({$natural:-1}).limit(5);
+        res.status(200).json(expenses);
+    }catch(error){
+        res.status(404).json({message: error.message});
+    }
+}
