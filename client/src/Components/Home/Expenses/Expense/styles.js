@@ -15,5 +15,14 @@ export default makeStyles({
     },
     header:{
         display:'flex',
+        justifyContent:'space-between',
+        marginBottom:'10px',
+    },
+    main:{
+        display:'flex',
+        justifyContent:'center',
+    },
+    description:{
+        textAlign:'center',
     }
 });

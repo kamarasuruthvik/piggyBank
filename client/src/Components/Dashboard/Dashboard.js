@@ -8,7 +8,6 @@ import Moment from 'react-moment';
 
 const Dashboard = () => {
     const [total, setTotal]= useState(0);
-    const [lastFive,setLastFive]= useState([]);
     const classes = useStyles();
     const dispatch = useDispatch();
     const expenses= useSelector( (state)=> state.expenses);
@@ -25,11 +24,12 @@ const Dashboard = () => {
         dispatch(getExpenses());
         dispatch(getLastFiveExpenses());
         findTotal();
+        expenses.reverse(); 
     },[]) ;
     return (
         <Grid container justifyContent="center"> 
         <Grid item  xs={12} md={6} className={classes.mainContainer} >
-        <Typography variant="h2" gutterBottom>Dashboard</Typography>
+        <Typography variant="h3" gutterBottom>Dashboard</Typography>
         <Graph expenses={expenses}/> 
         <Typography variant="h5">Your total expenditure is : {total}</Typography>
         </Grid>
@@ -38,7 +38,7 @@ const Dashboard = () => {
             <Card key={dash._id} className={classes.card}>
                 <CardContent className={classes.cardContent}>
                     <Typography variant="body2">{dash.amount} INR</Typography>
-                    <Typography variant="caption"><Moment format="DD/MM/YYYY">{dash.dateTime}</Moment></Typography> 
+                    <Typography variant="caption"><Moment format="DD/MM/YYYY, hh:mma">{dash.dateTime}</Moment></Typography> 
                 </CardContent>
             </Card>
             )}

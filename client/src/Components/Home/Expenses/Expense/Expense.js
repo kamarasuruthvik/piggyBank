@@ -6,6 +6,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import {deleteExpense} from '../../../../Actions/expenses'; 
 import { useDispatch } from 'react-redux';
+import Moment from 'react-moment';
 const Expense = ({expense, handleUpdate}) => {
     const classes= useStyles();
     const dispatch = useDispatch(); 
@@ -18,11 +19,11 @@ const Expense = ({expense, handleUpdate}) => {
         <div className={classes.header}> 
         <MonetizationOnIcon className={classes.green} />
   
-        <Typography color="textPrimary" variant="body1">{expense.amount}</Typography>
-
+        <Typography color="textPrimary" variant="body1">{expense.amount}INR</Typography>
+        <Typography variant="caption"><Moment format="DD/MM/YYYY, hh:mma">{expense.dateTime}</Moment></Typography> 
         
         </div>    
-        <Typography color="textSecondary" variant="caption">{expense.description}</Typography>
+        <Typography className={classes.description} color="textSecondary" variant="caption">{expense.description}</Typography>
         
         </CardContent>
         <CardActions className={classes.actions}>

@@ -2,6 +2,7 @@ import React,{useState,  useEffect} from 'react'
 import {Container, Grow, Grid} from '@material-ui/core';
 import Form from './Form/Form';
 import Expenses from './Expenses/Expenses';
+import Search from './Search/Search'
 import {useDispatch} from 'react-redux'; 
 
 import {getExpenses} from '../../Actions/expenses'
@@ -18,10 +19,11 @@ const Home = () => {
         <Grow in>
                 <Container>
                     <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
+                        <Grid  item xs={12} sm={7} style={{maxHeight: '60vh', overflow: 'auto'}}>
                             <Expenses handleUpdate={handleUpdate}/>
                         </Grid>
                         <Grid item xs={12} sm={4} >
+                            <Search/>
                            <Form currentId={currentId} handleUpdate={handleUpdate} />
                         </Grid>
                     </Grid>
