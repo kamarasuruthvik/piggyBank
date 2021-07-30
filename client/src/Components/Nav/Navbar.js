@@ -49,7 +49,7 @@ const Nav= ()=>{
         <ButtonGroup color="primary" aria-label="outlined primary button group">
                 <Button component={Link} to="/"><AppsIcon/></Button>
                 <Button component={Link} to="/dashboard"><DashboardIcon/></Button>
-                <Button><AssessmentIcon/></Button>
+                <Button component={Link} to="/report"><AssessmentIcon/></Button>
             </ButtonGroup>
         <Toolbar className={classes.toolbar}>
   
@@ -63,7 +63,7 @@ const Nav= ()=>{
                     <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                 </div>
             ):(
-                <Button component={Link} to="/" variant="contained" color="primary">SignIn</Button>
+                <Button component={Link} to="/auth" variant="contained" color="primary">SignIn</Button>
             )
         }
         </Toolbar>

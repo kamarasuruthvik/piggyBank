@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 import Auth from './Components/Auth/Auth';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard';
+import Report from './Components/Report/Report';
 const App = () => {
     return (
         <BrowserRouter>
@@ -21,6 +22,9 @@ const App = () => {
                 </Switch>
                 <Switch>
                     <Route path="/dashboard" exact component={Dashboard}/>
+                </Switch>
+                <Switch>
+                    <Route path="/report" exact component={Report}/>
                 </Switch>
         </Container>
         </BrowserRouter>
