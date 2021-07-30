@@ -7,12 +7,13 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
       },
     card:{
-      width: '300px',
       marginTop:'20px',
     },
     cardContent:{
-      display:'flex',
-      justifyContent:'space-around',
-      margin:'0',
+        display:'flex', 
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
     }
+    
 }));
