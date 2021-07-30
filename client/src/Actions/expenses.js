@@ -49,3 +49,13 @@ export const getLastFiveExpenses=()=> async (dispatch)=>{
         console.log(error);
     }
 }
+
+export const searchExpenseByCategory= (searchQuery)=> async (dispatch)=>{
+    try{
+        const {data}= await api.getExpensesByCategory(searchQuery);
+        dispatch({type:'SEARCH', payload:data.data}); 
+
+    } catch(error){
+        console.log(error);
+    }
+}

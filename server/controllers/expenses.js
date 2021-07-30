@@ -6,7 +6,7 @@ export const getExpense = async (req, res )=>{
     return res.json({message: "Unauthenticated"});
     const Id= req.userId; 
     try{
-        const expenses= await expenseModel.find({userId:{$eq:Id}}).sort({$natural:-1});
+        const expenses= await expenseModel.find({userId:{$eq:Id}});
         res.status(200).json(expenses);
     }catch(error){
         res.status(404).json({message: error.message});
@@ -64,3 +64,18 @@ export const getLastFiveExpense = async (req, res )=>{
     }
 }
 
+export const getExpensesBySearch= async (req, res)=>{
+    if(!req.userId)
+    return res.json({message: "Unauthenticated"});
+
+    const userId= req.userId
+    const {searchQuery}= req.query; 
+    try{
+        const expenses= await expenseModel.find({$and:[{userId:{$eq:userId}},
+                                                        {category: {$in : searchQuery.split(',')}}]});
+        res.json({data: expenses});
+    } catch(error){
+        res.status(404).json({ message: error.message });
+    }
+
+}

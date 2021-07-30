@@ -14,6 +14,8 @@ export default (expenses=[] , action )=>{
         case 'DELETE':{
             return expenses.filter((expense)=> expense._id!== action.payload); 
         }
+        case  'SEARCH':
+            return action.payload;
         default:
             return expenses;
     }

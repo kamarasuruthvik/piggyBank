@@ -10,7 +10,7 @@ import {useSelector} from 'react-redux';
 const Expenses = ({handleUpdate}) => {
     const classes= useStyles();
     const expenses= useSelector( (state)=> state.expenses);
-    console.log(expenses);
+    console.log('From expenses',expenses);
 
 
 

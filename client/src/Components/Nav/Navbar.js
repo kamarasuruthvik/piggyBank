@@ -8,6 +8,7 @@ import piggy from '../../Images/piggy.png'
 import AppsIcon from '@material-ui/icons/Apps';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+
 const Nav= ()=>{
     const [user , setUser]= useState(JSON.parse(localStorage.getItem('profile')));
     const classes=useStyles();
@@ -46,8 +47,8 @@ const Nav= ()=>{
      
         </div>
         <ButtonGroup color="primary" aria-label="outlined primary button group">
-                <Button><AppsIcon/></Button>
-                <Button><DashboardIcon/></Button>
+                <Button component={Link} to="/"><AppsIcon/></Button>
+                <Button component={Link} to="/dashboard"><DashboardIcon/></Button>
                 <Button><AssessmentIcon/></Button>
             </ButtonGroup>
         <Toolbar className={classes.toolbar}>

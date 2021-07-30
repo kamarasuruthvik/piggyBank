@@ -23,9 +23,11 @@ const Dashboard = () => {
     useEffect(()=>{
         dispatch(getExpenses());
         dispatch(getLastFiveExpenses());
-        findTotal();
-        expenses.reverse(); 
+
     },[]) ;
+    useEffect(()=>{
+        findTotal();
+    },[expenses])
     return (
         <Grid container justifyContent="center"> 
         <Grid item  xs={12} md={6} className={classes.mainContainer} >

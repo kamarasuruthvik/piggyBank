@@ -25,7 +25,7 @@ export const makeExpense = (newExpense) => API.post('expenses', newExpense);
 export const updateExpense = (id, updatedExpense) => API.patch(`expenses/${id}`, updatedExpense);
 export const deleteExpense = (id) => API.delete(`expenses/${id}`);
 export const fetchFiveExpenses= ()=>API.get('expenses/five');
-
+export const getExpensesByCategory= (searchQuery)=> API.get(`expenses/search?searchQuery=${searchQuery}`);
 
 export const signin = (formData)=> API.post('/user/signin', formData);
 export const signup = (formData)=> API.post('/user/signup', formData);
