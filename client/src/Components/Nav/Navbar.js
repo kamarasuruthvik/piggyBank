@@ -46,13 +46,14 @@ const Nav= ()=>{
           <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Bank</Typography>
      
         </div>
+        {user&&(
         <ButtonGroup color="primary" aria-label="outlined primary button group">
                 <Button component={Link} to="/"><AppsIcon/></Button>
                 <Button component={Link} to="/dashboard"><DashboardIcon/></Button>
                 <Button component={Link} to="/report"><AssessmentIcon/></Button>
             </ButtonGroup>
-        <Toolbar className={classes.toolbar}>
-  
+        )}
+                <Toolbar className={classes.toolbar}>
         {       
             user? (
                 <div className={classes.profile}>

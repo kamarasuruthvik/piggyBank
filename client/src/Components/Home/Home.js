@@ -5,17 +5,26 @@ import Expenses from './Expenses/Expenses';
 import Search from './Search/Search'
 import {useDispatch} from 'react-redux'; 
 
-import {getExpenses} from '../../Actions/expenses'
+import {getExpenses} from '../../Actions/expenses';
+import {Link , useHistory ,useLocation} from 'react-router-dom';
+import decode from 'jwt-decode';
+import Redirect from '../Redirect/Redirect';
+
 const Home = () => {
     const [currentId, setCurrentId]= useState(null);
-    const handleUpdate =(id)=>{
-        setCurrentId(id);
-    }
+    const [user , setUser]= useState(JSON.parse(localStorage.getItem('profile')));
+
     const dispatch= useDispatch();
+    const history = useHistory();
+    const location= useLocation();
+
     useEffect(()=>{
         dispatch(getExpenses());
     },[dispatch,currentId]);
-    return (
+    const handleUpdate =(id)=>{
+        setCurrentId(id);
+    }
+    return (user?(
         <Grow in>
                 <Container>
                     <Grid container justify="space-between" alignItems="stretch" spacing={3}>
@@ -29,6 +38,7 @@ const Home = () => {
                     </Grid>
                 </Container>
             </Grow>
+    ):(<Redirect/>)
     );
 }
 

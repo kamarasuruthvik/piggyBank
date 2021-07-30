@@ -13,10 +13,9 @@ const Expenses = ({handleUpdate}) => {
     console.log('From expenses',expenses);
 
 
-
     return (
 
-                   !expenses.length? <CircularProgress/> : (
+         (
             <Grid  container direction="column" justifyContent="center" alignItems="center">
                 {
                     expenses.map((expense, index)=>(

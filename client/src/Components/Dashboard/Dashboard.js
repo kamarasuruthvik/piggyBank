@@ -5,6 +5,7 @@ import { getExpenses,getLastFiveExpenses } from '../../Actions/expenses';
 import Graph from './Graph';
 import useStyles from './styles';
 import Moment from 'react-moment';
+import Iconic from '../Iconic/Iconic';
 
 const Dashboard = () => {
     const [total, setTotal]= useState(0);
@@ -39,6 +40,7 @@ const Dashboard = () => {
             {dashBoard.map((dash)=>
             <Card key={dash._id} className={classes.card}>
                 <CardContent className={classes.cardContent}>
+                    <Iconic category= {dash.category}/>
                     <Typography variant="body2">{dash.amount} INR</Typography>
                     <Typography variant="caption"><Moment format="DD/MM/YYYY, hh:mma">{dash.dateTime}</Moment></Typography> 
                 </CardContent>

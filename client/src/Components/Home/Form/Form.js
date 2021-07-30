@@ -32,7 +32,7 @@ const Form = ({currentId, handleUpdate}) => {
 
     const clear=()=>{
         handleUpdate(null);
-        setExpData({amount:null, description:'', category: ''})
+        setExpData({amount:'', description:'', category: ''})
 
     }
 
